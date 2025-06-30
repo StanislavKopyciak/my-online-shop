@@ -1,0 +1,56 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+<div class="row">
+    <!-- Блок категорій -->
+    <div class="col-md-3 mb-4">
+        <div class="list-group shadow rounded">
+            <a asp-page="./Index"
+               class="list-group-item list-group-item-action @(string.IsNullOrEmpty(Model.SelectedCategory) ? "active" : "")">
+                Всі категорії
+            </a>
+
+            @foreach (var category in Model.Categories)
+            {
+                <a asp-page="./Index"
+                   asp-route-SelectedCategory="@category"
+                   class="list-group-item list-group-item-action @(Model.SelectedCategory == category ? "active" : "")">
+                    @category
+                </a>
+            }
+        </div>
+    </div>
+
+    <!-- Блок товарів -->
+    <div class="col-md-9">
+        <div class="row">
+            @if (Model.Products != null && Model.Products.Any(p => p.Available == 1))
+            {
+                @foreach (var product in Model.Products.Where(p => p.Available == 1))
+                {
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 shadow-sm border-0">
+                            <img src="/@product.Image_Url" alt="Фото товару" style="height:200px; object-fit:cover;" />
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">@product.Title</h5>
+                                <p class="card-text fw-bold text-success">@product.Price грн</p>
+                                <a href="/ProductDetail?id=@product.Id" class="btn btn-outline-primary mt-auto w-100">Детальніше</a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+            else
+            {
+                <div class="alert alert-info w-100" role="alert">
+                    На жаль, товари за обраною категорією не знайдені.
+                </div>
+            }
+        </div>
+    </div>
+
+</div>
+
+

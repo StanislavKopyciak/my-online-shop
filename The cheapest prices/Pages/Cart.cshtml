@@ -1,0 +1,20 @@
+﻿@page
+@model The_cheapest_prices.Pages.CartModel
+
+<h2>Ваш кошик</h2>
+
+@if (Model.Cart?.Any() ?? false)
+{
+    <ul class="list-group">
+        @foreach (var product in Model.Cart)
+        {
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                @product.Title - @product.Price грн
+            </li>
+        }
+    </ul>
+}
+else
+{
+    <p>Кошик порожній.</p>
+}
