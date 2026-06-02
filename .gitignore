@@ -1,0 +1,14 @@
+.vs
+bin
+obj
+.user
+.suo
+.cache
+.log
+.env
+appsettings.Development.json
+appsettings.json
+**/bin/
+**/obj/
+*.user
+*.suo

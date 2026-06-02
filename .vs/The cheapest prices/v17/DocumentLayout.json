@@ -1,7 +1,12 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\The cheapest prices\\",
-  "Documents": [],
+  "WorkspaceRootPath": "D:\\my-online-shop\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{163D66BA-D28C-453E-864B-87C8501E6A61}|OnlineShop.Infrastructure\\OnlineShop.Infrastructure.csproj|d:\\my-online-shop\\onlineshop.infrastructure\\data\\onlineshopcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{163D66BA-D28C-453E-864B-87C8501E6A61}|OnlineShop.Infrastructure\\OnlineShop.Infrastructure.csproj|solutionrelative:onlineshop.infrastructure\\data\\onlineshopcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,11 +14,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "OnlineShopContext.cs",
+              "DocumentMoniker": "D:\\my-online-shop\\OnlineShop.Infrastructure\\Data\\OnlineShopContext.cs",
+              "RelativeDocumentMoniker": "OnlineShop.Infrastructure\\Data\\OnlineShopContext.cs",
+              "ToolTip": "D:\\my-online-shop\\OnlineShop.Infrastructure\\Data\\OnlineShopContext.cs",
+              "RelativeToolTip": "OnlineShop.Infrastructure\\Data\\OnlineShopContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-25T19:50:02.429Z",
+              "EditorCaption": ""
             }
           ]
         }

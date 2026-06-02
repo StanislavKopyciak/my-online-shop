@@ -1,0 +1,75 @@
+﻿@page
+@model OnlineShop.Pages.Products.IndexModel
+@using OnlineShop.Core.Enums
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="row">
+
+    <!-- Категорії -->
+    <div class="col-md-3 mb-4">
+        <div class="list-group shadow rounded">
+
+            <a asp-page="./Index"
+               class="list-group-item list-group-item-action @(Model.SelectedCategory == null ? "active" : "")">
+                Всі категорії
+            </a>
+
+            @foreach (var category in Enum.GetValues<CategoryEnum>())
+            {
+                <a asp-page="./Index"
+                   asp-route-SelectedCategory="@category"
+                   class="list-group-item list-group-item-action @(Model.SelectedCategory == category ? "active" : "")">
+
+                    @category
+                </a>
+            }
+
+        </div>
+    </div>
+
+    <!-- Товари -->
+    <div class="col-md-9">
+        <div class="row">
+
+            @if (Model.Products.Any())
+            {
+                @foreach (var product in Model.Products)
+                {
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 shadow-sm border-0">
+
+                            <img src="@product.Image_Url"
+                                 style="height:200px; object-fit:cover;" />
+
+                            <div class="card-body d-flex flex-column">
+
+                                <h5>@product.Title</h5>
+
+                                <p class="fw-bold text-success">
+                                    @product.Price грн
+                                </p>
+
+                                <a href="/Products/ProductDetail?id=@product.Id"
+                                   class="btn btn-outline-primary mt-auto">
+                                    Детальніше
+                                </a>
+
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+            else
+            {
+                <div class="alert alert-info w-100">
+                    Товари не знайдені
+                </div>
+            }
+
+        </div>
+    </div>
+
+</div>
+

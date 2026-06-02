@@ -1,0 +1,101 @@
+﻿@page
+@model OnlineShop.Presentation.Pages.Users.Auth.RegisterModel
+@{
+}
+
+<form method="post">
+
+
+    <div class="w-50 mx-auto mt-5">
+
+        <div class="mb-4">
+            <label>Ім'я</label>
+            <input asp-for="Input.Name" class="form-control border-success" />
+            <span asp-validation-for="Input.Name" class="text-danger"></span>
+        </div>
+
+        <div class="mb-4">
+            <label>Прізвище</label>
+            <input asp-for="Input.Surname" class="form-control border-success" />
+            <span asp-validation-for="Input.Surname" class="text-danger"></span>
+        </div>
+
+        <div class="mb-4">
+            <label>По батькові</label>
+            <input asp-for="Input.Patronymic" class="form-control border-success" />
+            <span asp-validation-for="Input.Patronymic" class="text-danger"></span>
+        </div>
+
+        <div class="mb-4">
+            <label>Телефон</label>
+            <input asp-for="Input.NumberPhone" class="form-control border-success" />
+            <span asp-validation-for="Input.NumberPhone" class="text-danger"></span>
+        </div>
+
+        <div class="mb-4">
+            <label>Стать</label>
+            <select asp-for="Input.Sex" class="form-control border-success">
+                <option value="">-- Виберіть стать --</option>
+                <option value="1">Чоловік</option>
+                <option value="0">Жінка</option>
+            </select>
+            <span asp-validation-for="Input.Sex" class="text-danger"></span>
+        </div>
+
+        <div class="mb-4">
+            <label>Дата народження</label>
+            <input asp-for="Input.DateOfBirth" type="date" class="form-control border-success" />
+            <span asp-validation-for="Input.DateOfBirth" class="text-danger"></span>
+        </div>
+
+        <div class="mb-4">
+            <label>Email</label>
+            <input asp-for="Input.Email" type="email" class="form-control border-success" />
+            <span asp-validation-for="Input.Email" class="text-danger"></span>
+        </div>
+
+        <div class="mb-4">
+            <label>Пароль</label>
+            <input asp-for="Input.Password" type="password" class="form-control border-success" />
+            <span asp-validation-for="Input.Password" class="text-danger"></span>
+        </div>
+
+        <hr />
+
+        <h5>Адреса</h5>
+
+        <div class="mb-4">
+            <label class="form-label">Країна</label>
+            <input asp-for="Input.Address.Country" class="form-control border-success" />
+            <span asp-validation-for="Input.Address.Country" class="text-danger"></span>
+        </div>
+
+        <div class="mb-4">
+            <label class="form-label">Місто</label>
+            <input asp-for="Input.Address.City" class="form-control border-success" />
+            <span asp-validation-for="Input.Address.City" class="text-danger"></span>
+        </div>
+
+        <div class="mb-4">
+            <label class="form-label">Вулиця</label>
+            <input asp-for="Input.Address.Street" class="form-control border-success" />
+            <span asp-validation-for="Input.Address.Street" class="text-danger"></span>
+        </div>
+
+        <div class="mb-4">
+            <label class="form-label">Будинок</label>
+            <input asp-for="Input.Address.House" class="form-control border-success" />
+            <span asp-validation-for="Input.Address.House" class="text-danger"></span>
+        </div>
+
+        <div class="mb-4">
+            <label class="form-label">Квартира (необов'язково)</label>
+            <input asp-for="Input.Address.Apartment" class="form-control border-success" />
+            <span asp-validation-for="Input.Address.Apartment" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-outline-primary">
+            Зареєструвати
+        </button>
+    </div>
+</form>

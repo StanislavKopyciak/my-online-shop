@@ -1,0 +1,54 @@
+﻿@page
+@model OnlineShop.Presentation.Pages.Users.Account.ProfileModel
+
+@{
+}
+
+
+<div class="flex-grow-1 p-3">
+    <ul class="list-group list-group-flush">
+
+        <li class="list-group-item">
+            <strong>Ім'я та прізвище:</strong>
+            @Model.CurrentUser.Name @Model.CurrentUser.Surname
+        </li>
+
+        <li class="list-group-item">
+            <strong>По батькові:</strong> @Model.CurrentUser.Patronymic
+        </li>
+
+        <li class="list-group-item">
+            <strong>Стать:</strong> @Model.CurrentUser.Sex
+        </li>
+
+        <li class="list-group-item">
+            <strong>Дата народження:</strong> @Model.CurrentUser.DateOfBirth?.ToString("yyyy-MM-dd")
+        </li>
+
+        <li class="list-group-item">
+            <strong>Телефон:</strong> @Model.CurrentUser.NumberPhone
+        </li>
+
+        <li class="list-group-item">
+            <strong>Email:</strong> @Model.CurrentUser.Email
+        </li>
+
+        <li class="list-group-item">
+            <strong>Адреса:</strong>
+            @Model.CurrentUser.Address?.Country,
+            @Model.CurrentUser.Address?.City,
+            @Model.CurrentUser.Address?.Street,
+            @Model.CurrentUser.Address?.House
+            @Model.CurrentUser.Address?.Apartment
+        </li>
+
+        <form method="post">
+            <button asp-page-handler="Edit"
+                    class="btn btn-outline-success"
+                    type="submit">
+                Редагувати
+            </button>
+        </form>
+
+    </ul>
+</div>

@@ -1,0 +1,87 @@
+﻿@page "{id:guid}"
+@model OnlineShop.Presentation.Pages.Products.EditProductModel
+
+<form method="post" enctype="multipart/form-data">
+    <input asp-for="Input.Id" type="hidden" />
+
+    <div class="w-50 mx-auto mt-5">
+
+        <h3 class="mb-4">Редагування товару</h3>
+
+        <div class="mb-3">
+            <label class="form-label">Назва продукту</label>
+            <input asp-for="Input.Title" class="form-control border-success" />
+            <span asp-validation-for="Input.Title" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Опис продукту</label>
+            <textarea asp-for="Input.Description"
+                      class="form-control border-success"></textarea>
+            <span asp-validation-for="Input.Description" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Ціна</label>
+            <input asp-for="Input.Price" class="form-control border-success" />
+            <span asp-validation-for="Input.Price" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Доставка</label>
+            <select asp-for="Input.Delivery"
+                    class="form-control border-success"
+                    asp-items="Html.GetEnumSelectList<OnlineShop.Core.Enums.DeliveryEnum>()">
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Категорія</label>
+            <select asp-for="Input.Category"
+                    class="form-control border-success"
+                    asp-items="Html.GetEnumSelectList<OnlineShop.Core.Enums.CategoryEnum>()">
+            </select>
+        </div>
+
+        <hr />
+
+        <h5>Адреса</h5>
+
+        <div class="mb-3">
+            <label class="form-label">Країна</label>
+            <input asp-for="Input.Address.Country" class="form-control border-success" />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Місто</label>
+            <input asp-for="Input.Address.City" class="form-control border-success" />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Вулиця</label>
+            <input asp-for="Input.Address.Street" class="form-control border-success" />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Будинок</label>
+            <input asp-for="Input.Address.House" class="form-control border-success" />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Квартира</label>
+            <input asp-for="Input.Address.Apartment" class="form-control border-success" />
+        </div>
+
+        <hr />
+
+        <div class="mb-3">
+            <label class="form-label">Нове фото (необов'язково)</label>
+            <input asp-for="ImageFile" type="file" class="form-control" />
+        </div>
+
+        <button type="submit" class="btn btn-outline-primary w-100">
+            Зберегти зміни
+        </button>
+
+    </div>
+</form>

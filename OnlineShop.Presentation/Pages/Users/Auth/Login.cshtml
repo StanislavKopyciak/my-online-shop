@@ -1,0 +1,25 @@
+﻿@page
+@model OnlineShop.Presentation.Pages.Users.Auth.LoginModel
+@{
+}
+
+<form method="post">
+    <div class="w-50 mx-auto mt-5">
+        <div class="mb-4">
+            <label class="form-label">Ваша почта</label>
+            <input asp-for="Input.Email" class="form-control border-success">
+            <span asp-validation-for="Input.Email" class="text-danger"></span>
+        </div>
+
+        <div class="mb-4">
+            <label class="form-label">Ваш пароль</label>
+            <input asp-for="Input.Password" type="password" class="form-control border-success">
+            <span asp-validation-for="Input.Password" class="text-danger"></span>
+        </div>
+
+        <div>
+            <button type="submit" class="btn btn-outline-primary">Увійти</button>
+            <a class="btn btn-link" asp-page="/Users/Auth/Register">Зареєструвати</a>
+        </div>
+    </div>
+</form>

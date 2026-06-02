@@ -1,0 +1,138 @@
+﻿@page
+@model OnlineShop.Presentation.Pages.Products.ProductDetailModel
+
+@{
+    ViewData["Title"] = "Деталі продукту";
+}
+
+<div class="container mt-5">
+
+    @if (Model.Product != null)
+    {
+        <div class="card mx-auto shadow-sm" style="max-width: 750px;">
+
+            <img src="@Model.Product.Image_Url"
+                 class="card-img-top"
+                 style="max-height:400px; object-fit:cover;"
+                 alt="@Model.Product.Title" />
+
+            <div class="card-body">
+
+                <h3 class="mb-3">@Model.Product.Title</h3>
+
+                <p class="text-muted">
+                    @Model.Product.Description
+                </p>
+
+                <hr />
+
+                <div class="mb-2">
+                    <strong>Ціна:</strong>
+                    <span class="text-success fw-bold">
+                        @Model.Product.Price грн
+                    </span>
+                </div>
+
+                <div class="mb-2">
+                    <strong>Місто:</strong>
+                    @Model.Product.Address.City
+                </div>
+
+                <div class="mb-2">
+                    <strong>Адреса:</strong>
+                    @Model.Product.Address.Country,
+                    @Model.Product.Address.City,
+                    @Model.Product.Address.Street,
+                    буд. @Model.Product.Address.House
+                    @if (!string.IsNullOrWhiteSpace(Model.Product.Address.Apartment))
+                    {
+                        <span>, кв. @Model.Product.Address.Apartment</span>
+                    }
+                </div>
+
+                <div class="mb-2">
+                    <strong>Дата додавання:</strong>
+                    @Model.Product.Created_At.ToString("dd.MM.yyyy")
+                </div>
+
+                <hr />
+
+                <div class="mb-3">
+                    <span class="badge bg-@(Model.Product.IsSold ? "danger" : "success")">
+                        @(Model.Product.IsSold ? "Продано" : "В наявності")
+                    </span>
+                </div>
+
+                <div class="d-flex gap-2">
+
+                    <a asp-page="/Products/Index"
+                       class="btn btn-secondary w-50">
+                        Назад
+                    </a>
+
+                    @if (Model.IsOwner && !Model.Product.IsSold)
+                    {
+                        <a asp-page="/Products/EditProduct"
+                           asp-route-id="@Model.Product.Id"
+                           class="btn btn-primary w-50">
+                            Редагувати
+                        </a>
+                    }
+
+                    @if (Model.IsOwner && !Model.Product.IsSold)
+                    {
+                        <form method="post"
+                              asp-page-handler="Delete"
+                              class="w-50">
+
+                            <input type="hidden"
+                                   name="productId"
+                                   value="@Model.Product.Id" />
+
+                            <button type="submit"
+                                    class="btn btn-danger w-100"
+                                    onclick="return confirm('Видалити цей товар?');">
+                                Видалити
+                            </button>
+
+                        </form>
+                    }
+                    else if (!Model.Product.IsSold)
+                    {
+                        <form method="post"
+                              asp-page-handler="Buy"
+                              class="w-50">
+
+                            <input type="hidden"
+                                   name="productId"
+                                   value="@Model.Product.Id" />
+
+                            <button type="submit"
+                                    class="btn btn-success w-100"
+                                    onclick="return confirm('Купити цей товар?');">
+                                Купити
+                            </button>
+
+                        </form>
+                    }
+                    else
+                    {
+                        <button class="btn btn-danger w-50" disabled>
+                            Товар продано
+                        </button>
+                    }
+
+                </div>
+
+            </div> 
+
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-danger text-center">
+            Продукт не знайдено
+        </div>
+    }
+
+</div>
